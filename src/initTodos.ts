@@ -8,6 +8,8 @@ export const initTodos: Todo[] = [
     isDone: false,
     priority: 2,
     deadline: new Date(2024, 10, 2, 17, 30),
+    tags: ["勉強", "数学"],
+    category: "学習",
   },
   {
     id: uuid(),
@@ -15,6 +17,8 @@ export const initTodos: Todo[] = [
     isDone: false,
     priority: 3,
     deadline: null,
+    tags: ["プログラミング", "Web"],
+    category: "学習",
   },
   {
     id: uuid(),
@@ -22,6 +26,8 @@ export const initTodos: Todo[] = [
     isDone: true,
     priority: 1,
     deadline: new Date(2024, 10, 11),
+    tags: ["勉強", "物理"],
+    category: "学習",
   },
   {
     id: uuid(),
@@ -29,5 +35,7 @@ export const initTodos: Todo[] = [
     isDone: true,
     priority: 2,
     deadline: null,
+    tags: ["その他"],
+    category: "生活",
   },
 ];
