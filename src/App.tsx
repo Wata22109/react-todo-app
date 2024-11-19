@@ -176,7 +176,7 @@ const App = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50 px-4 py-10">
-      <RainbowTitle>TodoApp</RainbowTitle>
+      <RainbowTitle>TODOs</RainbowTitle>
 
       {/* 新規Todo追加セクション */}
       <div className="mb-6 overflow-hidden rounded-xl border bg-white shadow-lg transition-all duration-300">

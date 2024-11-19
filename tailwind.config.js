@@ -7,9 +7,16 @@ export default {
   plugins: [],
 };
 module.exports = {
-  content: ["./src/**/*.{js,jsx,ts,tsx}"],
+  content: [
+    "./index.html", // rootフォルダのindex.htmlも含める
+    "./src/**/*.{js,jsx,ts,tsx}",
+  ],
   theme: {
     extend: {
+      fontFamily: {
+        stardos: ['"Stardos Stencil"', "system-ui"],
+        yuji: ['"Yuji Hentaigana Akari"', "cursive"],
+      },
       animation: {
         "rainbow-pulse": "rainbow-pulse 3s linear infinite",
       },
