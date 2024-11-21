@@ -14,6 +14,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
+        //フォント
         stardos: ['"Stardos Stencil"', "system-ui"],
         yuji: ['"Yuji Hentaigana Akari"', "cursive"],
       },

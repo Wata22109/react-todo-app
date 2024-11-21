@@ -178,7 +178,6 @@ const App = () => {
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50 px-4 py-10">
       <RainbowTitle>TODOs</RainbowTitle>
 
-      {/* 新規Todo追加セクション */}
       <div className="mb-6 overflow-hidden rounded-xl border bg-white shadow-lg transition-all duration-300">
         <button
           onClick={() => setShowAddForm(!showAddForm)}
@@ -296,7 +295,6 @@ const App = () => {
         </div>
       </div>
 
-      {/* フィルターとソートセクション */}
       <div className="mb-6 overflow-hidden rounded-xl border bg-white shadow-lg transition-all duration-300">
         <button
           onClick={() => setShowFilters(!showFilters)}
@@ -443,7 +441,7 @@ const App = () => {
           </div>
         </div>
       </div>
-      {/* タスク一覧ヘッダー */}
+
       <div className="mb-4 flex items-center justify-between">
         <h2 className="text-2xl font-bold text-gray-800">タスク一覧</h2>
         <button
@@ -455,7 +453,6 @@ const App = () => {
         </button>
       </div>
 
-      {/* Todoリスト */}
       <TodoList
         todos={getSortedAndFilteredTodos()}
         updateIsDone={updateIsDone}
