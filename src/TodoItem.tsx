@@ -3,7 +3,7 @@ import { Todo } from "./types";
 import dayjs from "dayjs";
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faClock } from "@fortawesome/free-solid-svg-icons";
+import { faClock, faStickyNote } from "@fortawesome/free-solid-svg-icons";
 
 type Props = {
   todo: Todo;
@@ -15,6 +15,7 @@ type Props = {
 const TodoItem = ({ todo, updateIsDone, remove, updateTodo }: Props) => {
   const [isEditing, setIsEditing] = useState(false);
   const [editedName, setEditedName] = useState(todo?.name || "");
+  const [editedMemo, setEditedMemo] = useState(todo?.memo || ""); // 追加：メモの状態
   const [editedTags, setEditedTags] = useState(
     Array.isArray(todo?.tags) ? todo.tags.join(", ") : ""
   );
@@ -23,6 +24,7 @@ const TodoItem = ({ todo, updateIsDone, remove, updateTodo }: Props) => {
   const [editedDeadline, setEditedDeadline] = useState<string>(
     todo?.deadline ? dayjs(todo.deadline).format("YYYY-MM-DDTHH:mm") : ""
   );
+  const [showMemo, setShowMemo] = useState(false); // 追加：メモの表示状態
 
   if (!todo) {
     return null;
@@ -72,6 +74,7 @@ const TodoItem = ({ todo, updateIsDone, remove, updateTodo }: Props) => {
 
     updateTodo(todo.id, {
       name: editedName || todo.name,
+      memo: editedMemo, // 追加：メモの更新
       tags,
       category: editedCategory,
       priority: editedPriority,
@@ -102,6 +105,20 @@ const TodoItem = ({ todo, updateIsDone, remove, updateTodo }: Props) => {
               value={editedName}
               onChange={(e) => setEditedName(e.target.value)}
               className="w-full rounded-lg border p-2"
+            />
+          </div>
+
+          {/* 追加：メモ入力エリア */}
+          <div className="space-y-2">
+            <label className="block text-sm font-medium text-gray-700">
+              メモ
+            </label>
+            <textarea
+              value={editedMemo}
+              onChange={(e) => setEditedMemo(e.target.value)}
+              className="w-full rounded-lg border p-2"
+              rows={3}
+              placeholder="メモを入力してください"
             />
           </div>
 
@@ -210,7 +227,25 @@ const TodoItem = ({ todo, updateIsDone, remove, updateTodo }: Props) => {
                     {todo.category}
                   </span>
                 )}
+
+                {/* 追加：メモ表示のトグルボタン */}
+                {todo.memo && (
+                  <button
+                    onClick={() => setShowMemo(!showMemo)}
+                    className="rounded-full bg-gray-100 px-3 py-1 text-sm font-medium text-gray-600 hover:bg-gray-200"
+                  >
+                    <FontAwesomeIcon icon={faStickyNote} className="mr-2" />
+                    メモを{showMemo ? "隠す" : "表示"}
+                  </button>
+                )}
               </div>
+
+              {/* 追加：メモの表示エリア */}
+              {showMemo && todo.memo && (
+                <div className="mt-3 rounded-lg bg-yellow-50 p-3 text-sm text-gray-700">
+                  {todo.memo}
+                </div>
+              )}
 
               <div className="mt-3 flex flex-wrap gap-2">
                 {(todo.tags || []).map((tag, i) => (

@@ -24,6 +24,7 @@ const App = () => {
   const [newTodoCategory, setNewTodoCategory] = useState("");
   const [newTodoNameError, setNewTodoNameError] = useState("");
   const [initialized, setInitialized] = useState(false);
+  const [newTodoMemo, setNewTodoMemo] = useState("");
   const [filter, setFilter] = useState<{
     category: string | null;
     tags: string[];
@@ -119,6 +120,7 @@ const App = () => {
     const newTodo: Todo = {
       id: uuid(),
       name: newTodoName,
+      memo: newTodoMemo,
       isDone: false,
       priority: newTodoPriority,
       deadline: newTodoDeadline,
@@ -132,6 +134,7 @@ const App = () => {
     setTodos([...todos, newTodo]);
 
     setNewTodoName("");
+    setNewTodoMemo("");
     setNewTodoPriority(3);
     setNewTodoDeadline(null);
     setNewTodoTags("");
@@ -277,6 +280,19 @@ const App = () => {
                 onChange={(e) => setNewTodoTags(e.target.value)}
                 className="mt-1 w-full rounded-lg border p-2"
                 placeholder="タグ1, タグ2, タグ3"
+              />
+            </div>
+
+            <div className="space-y-2">
+              <label className="block text-sm font-medium text-gray-700">
+                メモ
+              </label>
+              <textarea
+                value={newTodoMemo}
+                onChange={(e) => setNewTodoMemo(e.target.value)}
+                className="mt-1 w-full rounded-lg border p-2"
+                rows={3}
+                placeholder="メモを入力してください"
               />
             </div>
           </div>

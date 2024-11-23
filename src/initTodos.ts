@@ -5,6 +5,7 @@ export const initTodos: Todo[] = [
   {
     id: uuid(),
     name: "解析2の宿題",
+    memo: "",
     isDone: false,
     priority: 2,
     deadline: new Date(2024, 10, 2, 17, 30),
@@ -14,6 +15,7 @@ export const initTodos: Todo[] = [
   {
     id: uuid(),
     name: "TypeScriptの勉強",
+    memo: "",
     isDone: false,
     priority: 3,
     deadline: null,
@@ -23,6 +25,7 @@ export const initTodos: Todo[] = [
   {
     id: uuid(),
     name: "基礎物理学の宿題",
+    memo: "",
     isDone: true,
     priority: 1,
     deadline: new Date(2099, 9, 9),
@@ -32,6 +35,7 @@ export const initTodos: Todo[] = [
   {
     id: uuid(),
     name: "本の返却",
+    memo: "",
     isDone: true,
     priority: 2,
     deadline: null,
